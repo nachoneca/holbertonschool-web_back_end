@@ -4,10 +4,10 @@ import uploadPhoto from './5-photo-reject';
 export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.all([
     signUpUser(firstName, lastName)
-      .then((dataprom) => ({ status: 'fulfilled', value: dataprom }))
-      .catch((errordata) => ({ status: 'rejected', value: Error('${fileName} cannot be processed')})),
+      .then((response) => ({ status: 'fulfilled', value: response }))
+      .catch((err) => ({ status: 'rejected', value: err.toString() })),
     uploadPhoto(fileName)
-      .then((dataprom) => ({ status: 'fulfilled', value: dataprom }))
-      .catch((errordata) => ({ status: 'rejected', value: Error('${fileName} cannot be processed')})),
+      .then((response) => ({ status: 'fulfilled', value: response }))
+      .catch((err) => ({ status: 'rejected', value: err.toString() })),
   ]).then((response) => response);
 }
