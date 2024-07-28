@@ -1,10 +1,10 @@
 export default function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
-    const True = ('');
+    const True = 'funca';
     if (True) {
-      resolve('');
+      resolve('Si funca');
     } else {
-      reject();
+      reject(Error('No funca'));
     }
   });
 }
