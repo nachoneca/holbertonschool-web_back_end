@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Sum list of floats and ints"""
+
+
 from typing import List, Union
 
 
