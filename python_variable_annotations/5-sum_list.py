@@ -4,6 +4,6 @@ from typing import List
 """Sum list of floats"""
 
 
-def sum_list(input_list: list[float]) -> float:
+def sum_list(input_list: List[float]) -> float:
     """Sum list of floats"""
     return float(sum(input_list))
