@@ -3,6 +3,7 @@
 """Execute n times the wait_random
 function with the max_delay for arg
 and return a list of those random numbers"""
+
 import asyncio
 import random
 from typing import List
