@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
-"""wait_random n times and save delay into a list"""
 
+"""Execute n times the wait_random
+function with the max_delay for arg
+and return a list of those random numbers"""
 
 from typing import List
-
-
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
-    """wait_random n times and save delay into a list"""
-    del_list = []
-    for x in range(n):
-        diley = await wait_random(max_delay)
-        del_list.append(diley)
-    return del_list
+    """Execute n times the wait_random
+    function with the max_delay for arg
+    and return a list of those random numbers"""
+    random_list = []
+    for times in range(n):
+        delay = await wait_random(max_delay)
+        random_list.append(delay)
+
+    random_list.sort()
+    return random_list
