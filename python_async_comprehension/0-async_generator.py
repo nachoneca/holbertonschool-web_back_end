@@ -5,9 +5,10 @@ then yield one number"""
 
 import asyncio
 import random
+from typing import AsyncGenerator
 
 
-async def async_generator():
+async def async_generator()-> AsyncGenerator[float, None]:
     """Function that loops 10 time and sleep 1 sec asyncronusly,
 then yield one number"""
     for loop in range(10):
