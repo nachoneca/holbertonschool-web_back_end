@@ -14,7 +14,7 @@ async def async_comprehension() -> List[float]:
     """Async func that iterates inside async_generator
 and saves the float into a list"""
     return [x async for x in async_generator()]
-    #result = []
-    #async for x in async_generator():
+    """result = []
+    async for x in async_generator():
         #result.append(x)
-    #return result
+    return result"""
