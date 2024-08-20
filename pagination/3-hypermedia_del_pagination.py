@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Func that get index and page_size and returns data inside,
-        no matter if data was eliminated or not"""
+no matter if data was eliminated or not
+PD: POINTER advance so ends on the next index"""
 
 
 import csv
@@ -40,7 +41,8 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """Func that get index and page_size and returns data inside,
-        no matter if data was eliminated or not"""
+        no matter if data was eliminated or not
+        PD: POINTER advance so ends on the next index"""
         data = self.dataset()
         indexed_data = self.indexed_dataset()
         data_len = len(data)
@@ -56,7 +58,7 @@ class Server:
                     break
                 else:
                     pointer += 1
-            pointer += 1  'So pointer will be in the next index'
+            pointer += 1
         return {
             'index': index,
             'data': output_data,
