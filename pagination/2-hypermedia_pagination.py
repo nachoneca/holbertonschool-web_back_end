@@ -1,4 +1,11 @@
 ##!/usr/bin/env python3
+"""Func that gives info:
+        -page_size
+        -page
+        -data
+        -next_page
+        -prev_page
+        -total_pages"""
 
 
 import csv
@@ -65,3 +72,4 @@ class Server:
             'prev_page': page - 1 if not page <= 1 else None,
             'total_pages': total_pages
         }
+   

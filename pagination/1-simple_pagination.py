@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""Func that get page and page size, uses the func
+    index_range to get all the data inside that range"""
 
 
 import csv
