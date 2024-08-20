@@ -1,4 +1,4 @@
-##!/usr/bin/env python3
+#!/usr/bin/env python3
 """Func that gives info:
         -page_size
         -page
