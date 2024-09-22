@@ -26,8 +26,8 @@ async function countStudents(path) {
     }
 
     for (const [field, list] of Object.entries(fields)) {
-      console.log(`Number of students in ${field}: ${fields[field].length}. List: ${list.join(', ')}`);
       result += `Number of students in ${field}: ${fields[field].length}. List: ${list.join(', ')}\n`;
+      console.log(`Number of students in ${field}: ${fields[field].length}. List: ${list.join(', ')}`);
     }
     return result.trim();
   } catch (error) {
@@ -36,10 +36,8 @@ async function countStudents(path) {
 }
 
 const port = 1245;
-
 const app = http.createServer(async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
-
   if (parsedUrl.pathname === '/') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -49,26 +47,26 @@ const app = http.createServer(async (req, res) => {
 
   if (parsedUrl.pathname === '/students') {
     const databaseFile = process.argv[2];
-
     if (!databaseFile) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.statusCode = 500;
+      res.setHeader('Content-Type', 'text/plain');
       res.end('Error: No database file provided');
       return;
     }
-
     try {
       const result = await countStudents(databaseFile);
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end(`This is the list of our students\n${result}`);
+      res.setHeader('Content-Type', 'text/plain');
+      res.statusCode = 200;
+      res.write('This is the list of our students\n');
+      res.end(result);
     } catch (error) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end('Cannot load the database');
+      res.statusCode = 500;
+      res.setHeader('Content-Type', 'text/plain');
+      res.end('This is the list of our students\nCannot load the database');
     }
   }
 });
-
 app.listen(port, () => {
   console.log(`Server is listening in port ${port}`);
 });
-
 module.exports = app;
